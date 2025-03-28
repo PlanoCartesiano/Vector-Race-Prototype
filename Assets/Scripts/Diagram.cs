@@ -14,18 +14,21 @@ public class Diagram : MonoBehaviour
     private bool isActive = false;
 
     private CarController carController;
+    private int diagramSize = 5;
 
     public void ShowDiagram(Vector2 carPosition, Vector2 lastMove)
     {
-        ClearDiagram(); // Limpa pontos antigos
+        ClearDiagram();
         currentPosition = carPosition;
         lastMoveVector = lastMove;
 
-        Vector2 center = carPosition + lastMove; // Centro do GG
+        Vector2 center = carPosition + lastMove;
 
-        for (int x = -1; x <= 1; x++)
+        int halfSize = diagramSize / 2;
+
+        for (int x = -halfSize; x <= halfSize; x++)
         {
-            for (int y = -1; y <= 1; y++)
+            for (int y = -halfSize; y <= halfSize; y++)
             {
                 Vector2 pointPos = center + new Vector2(x, y);
                 CreatePoint(pointPos);
@@ -59,5 +62,10 @@ public class Diagram : MonoBehaviour
         foreach (GameObject point in points)
             Destroy(point);
         points.Clear();
+    }
+
+    public void SetDiagramSize(int newSize)
+    {
+        diagramSize = newSize;
     }
 }
