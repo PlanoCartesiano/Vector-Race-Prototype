@@ -68,4 +68,9 @@ public class Diagram : MonoBehaviour
     {
         diagramSize = newSize;
     }
+
+    public void ResetLastMoveVector()
+    {
+        lastMoveVector = Vector2.zero;
+    }
 }
