@@ -40,7 +40,7 @@ public class Diagram : MonoBehaviour
 
     private void CreatePoint(Vector2 position)
     {
-        Debug.Log($"Criando ponto no grid em: {position}");
+        //Debug.Log($"Criando ponto no grid em: {position}");
         GameObject point = Instantiate(pointPrefab, position, Quaternion.identity, transform);
         points.Add(point);
         point.GetComponent<DiagramPoint>().Setup(this, position, defaultColor, hoverColor);

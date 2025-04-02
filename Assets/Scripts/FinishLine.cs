@@ -18,7 +18,9 @@ public class FinishLine : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("🏁 Vitória! O carro cruzou a linha de chegada!");
+
+            CarController car = other.GetComponent<CarController>();
+            Debug.Log("Vitória! Jogadas totais: " + car.Moves);
 
             if (victorySpam != null)
                 victorySpam.SetActive(true);

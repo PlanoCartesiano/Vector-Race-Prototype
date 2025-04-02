@@ -11,6 +11,10 @@ public class CarController : MonoBehaviour
     private LineRenderer lineRenderer;
     private List<Vector3> pathPoints = new List<Vector3>();
 
+    [Header("Time Counter")]
+    private int moves = 0;
+    public int Moves => moves;
+
     void Start()
     {
         diagram = FindFirstObjectByType(typeof(Diagram)) as Diagram;
@@ -28,6 +32,7 @@ public class CarController : MonoBehaviour
     {
         lastMoveVector = newPosition - (Vector2)transform.position;
         transform.position = newPosition;
+        moves++;
         diagram.ShowDiagram(newPosition, lastMoveVector);
 
         AddPointToPath(newPosition);
