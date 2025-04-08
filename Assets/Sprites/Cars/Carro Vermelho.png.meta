@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 16f8d3cf49ed51643a2b6eec1216af8d
+guid: ebdeb2624d31bc5458681eeda56320a1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7719712683772925654
-    second: TrackRoad_0
+      213: 965852227062947456
+    second: Carro Vermelho_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -74,7 +74,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TrackRoad_0
+      name: Carro Vermelho_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 20
-        height: 20
+        width: 160
+        height: 140
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a2923a307321ed490800000000000000
-      internalID: -7719712683772925654
+      spriteID: 08e5b93bb75676d00800000000000000
+      internalID: 965852227062947456
       vertices: []
       indices: 
       edges: []
@@ -144,7 +144,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TrackRoad_0: -7719712683772925654
+      Carro Vermelho_0: 965852227062947456
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
