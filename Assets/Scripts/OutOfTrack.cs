@@ -17,6 +17,7 @@ public class OutOfTrack : MonoBehaviour
         if (collision.gameObject.tag == "Sand")
         {
             sandTileCount++;
+            diagram.SetShape(Diagram.DiagramShape.Compact);
             diagram.SetDiagramSize(3);
         }
     }
@@ -26,6 +27,7 @@ public class OutOfTrack : MonoBehaviour
         if (collision.gameObject.tag == "Sand")
         {
             sandTileCount = Mathf.Max(sandTileCount - 1, 0);
+            diagram.SetShape(Diagram.DiagramShape.Default);
 
             if (sandTileCount == 0)
             {

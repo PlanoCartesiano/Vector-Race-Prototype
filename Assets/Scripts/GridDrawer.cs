@@ -17,7 +17,7 @@ public class GridDrawer : MonoBehaviour
 
     void DrawGrid()
     {
-        float camHeight = Camera.main.orthographicSize * 2f;
+        float camHeight = (Camera.main.orthographicSize + 10f) * 2f;
         float camWidth = camHeight * Camera.main.aspect;
 
         int gridSizeX = Mathf.CeilToInt(camWidth / cellSize);

@@ -47,4 +47,9 @@ public class DiagramPoint : MonoBehaviour
 
         //diagram.SelectPoint(position);
     }
+
+    public void OnTouch()
+    {
+        diagram.SelectPoint(position);
+    }
 }

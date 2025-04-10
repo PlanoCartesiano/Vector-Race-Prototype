@@ -6,6 +6,7 @@ using UnityEngine;
 public class CarController : MonoBehaviour
 {
     private Vector2 lastMoveVector = Vector2.zero;
+    public Vector2 LastMoveVector => lastMoveVector;
     private Diagram diagram;
 
     [Header("Car Rotation")]
@@ -28,6 +29,10 @@ public class CarController : MonoBehaviour
 
     void Start()
     {
+
+        if (lastMoveVector == Vector2.zero)
+            lastMoveVector = Vector2.right;
+
         diagram = FindFirstObjectByType(typeof(Diagram)) as Diagram;
         diagram.ShowDiagram(transform.position, lastMoveVector);
 
@@ -99,5 +104,10 @@ public class CarController : MonoBehaviour
         pathPoints.Add(newPoint);
         lineRenderer.positionCount = pathPoints.Count;
         lineRenderer.SetPositions(pathPoints.ToArray());
+    }
+
+    public void SetLastMoveVector(Vector2 newMoveVector)
+    {
+        lastMoveVector = newMoveVector;
     }
 }

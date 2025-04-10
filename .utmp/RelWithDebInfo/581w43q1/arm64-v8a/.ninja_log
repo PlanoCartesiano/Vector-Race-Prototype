@@ -1,0 +1,11 @@
+# ninja log v5
+35	259	7657748024204744	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	9a2a412cf2017a04
+260	441	7657748025595032	D:/Projetos Unity/Vector Race Prototype/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/581w43q1/obj/arm64-v8a/libswappywrapper.so	b7df42a04e3b52a8
+14	834	7657748029916060	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	c775ff5da6c274c8
+5	849	7657748030086104	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	7ee7b568355e628
+25	880	7657748030216132	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	a03d96c7034157d8
+30	918	7657748030766297	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	a006020131586468
+0	964	7657748031246400	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	ec3538dd601f9406
+20	1088	7657748032476709	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	5f45560e56806cd6
+9	1146	7657748033063351	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	e0b04517a1be5136
+1146	1310	7657748034236645	D:/Projetos Unity/Vector Race Prototype/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/581w43q1/obj/arm64-v8a/libgame.so	b7cbc1b46c11d464
