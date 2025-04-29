@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
+    public bool canMove = false;
     private Vector2 lastMoveVector = Vector2.zero;
     public Vector2 LastMoveVector => lastMoveVector;
     private Diagram diagram;
@@ -29,13 +31,6 @@ public class CarController : MonoBehaviour
 
     void Start()
     {
-
-        if (lastMoveVector == Vector2.zero)
-            lastMoveVector = Vector2.right;
-
-        diagram = FindFirstObjectByType(typeof(Diagram)) as Diagram;
-        diagram.ShowDiagram(transform.position, lastMoveVector);
-
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.startWidth = 0.1f;
         lineRenderer.endWidth = 0.1f;
@@ -46,22 +41,26 @@ public class CarController : MonoBehaviour
 
     public void MoveTo(Vector2 newPosition)
     {
+        if (!canMove) {  return; }
+
+        Debug.Log($"{gameObject.name} MoveTo: De {transform.position} para {newPosition} (lastMove antes: {lastMoveVector})");
+
         lastMoveVector = newPosition - (Vector2)transform.position;
+
+        Debug.Log($"{gameObject.name} Novo lastMoveVector: {lastMoveVector}");
 
         if (lastMoveVector != Vector2.zero)
         {
             float angle = Mathf.Atan2(lastMoveVector.y, lastMoveVector.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, angle);
-            //spriteTransform.rotation = Quaternion.Euler(0f, 0f, angle);
         }
 
         transform.position = newPosition;
         moves++;
-        diagram.ShowDiagram(newPosition, lastMoveVector);
-
         AddPointToPath(newPosition);
 
-        Invoke(nameof(ShowDiagramAfterMove), 0.3f);
+        canMove = false;
+        TurnManager.Instance.EndTurn();
     }
 
     private IEnumerator MoveCoroutine()
@@ -91,12 +90,7 @@ public class CarController : MonoBehaviour
         isMoving = false;
 
         // Aqui você chama o Diagram para a próxima jogada, se ainda estiver usando
-        FindFirstObjectByType<Diagram>().ShowDiagram(targetPosition, currentVelocity);
-    }
-
-    public void ShowDiagramAfterMove()
-    {
-        diagram.ShowDiagram((Vector2)transform.position, lastMoveVector);
+        //FindFirstObjectByType<Diagram>().ShowDiagram(targetPosition, currentVelocity, this);
     }
 
     private void AddPointToPath(Vector2 newPoint)
@@ -109,5 +103,8 @@ public class CarController : MonoBehaviour
     public void SetLastMoveVector(Vector2 newMoveVector)
     {
         lastMoveVector = newMoveVector;
+        Debug.Log($"{gameObject.name} SetLastMoveVector: {lastMoveVector}");
     }
+
+    public void EnableInput(bool e) => canMove = e;
 }

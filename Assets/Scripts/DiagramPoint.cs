@@ -52,4 +52,9 @@ public class DiagramPoint : MonoBehaviour
     {
         diagram.SelectPoint(position);
     }
+
+    void OnDestroy()
+    {
+        Debug.LogWarning($"[POINT] {name} foi destruído.");
+    }
 }

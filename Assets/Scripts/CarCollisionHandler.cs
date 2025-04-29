@@ -33,7 +33,7 @@ public class CarCollisionHandler : MonoBehaviour
         // Mantém o carro na mesma posição (pois ele saiu da pista) e zera o vetor de movimento.
         diagram.ResetLastMoveVector();            // Zera o vetor (o diagrama passará a ser gerado com vetor zero)
         car.SetLastMoveVector(car.transform.right);
-        diagram.ShowDiagram(transform.position, Vector2.zero); // Atualiza o diagrama no mesmo ponto com velocidade 0
+        diagram.ShowDiagram(transform.position, Vector2.zero, car); // Atualiza o diagrama no mesmo ponto com velocidade 0
 
         penalizing = false;
     }
