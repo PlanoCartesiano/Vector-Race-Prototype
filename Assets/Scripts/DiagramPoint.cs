@@ -44,17 +44,10 @@ public class DiagramPoint : MonoBehaviour
         {
             diagram.SelectPoint(position);
         }
-
-        //diagram.SelectPoint(position);
     }
 
     public void OnTouch()
     {
         diagram.SelectPoint(position);
-    }
-
-    void OnDestroy()
-    {
-        Debug.LogWarning($"[POINT] {name} foi destruído.");
     }
 }

@@ -29,6 +29,12 @@ public class CarController : MonoBehaviour
     [Header("Car Visual")]
     public Transform spriteTransform;
 
+    [Header("sandDetection")]
+    public bool InSand { get; private set; } = false;
+
+    [Header("Finish Check")]
+    public bool HasFinished { get; private set; } = false;
+
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
@@ -43,11 +49,7 @@ public class CarController : MonoBehaviour
     {
         if (!canMove) {  return; }
 
-        Debug.Log($"{gameObject.name} MoveTo: De {transform.position} para {newPosition} (lastMove antes: {lastMoveVector})");
-
         lastMoveVector = newPosition - (Vector2)transform.position;
-
-        Debug.Log($"{gameObject.name} Novo lastMoveVector: {lastMoveVector}");
 
         if (lastMoveVector != Vector2.zero)
         {
@@ -79,7 +81,7 @@ public class CarController : MonoBehaviour
 
         transform.position = targetPosition;
 
-        // Rotaciona o carro com base na direção do movimento
+        // Rotaciona o carro com base na direï¿½ï¿½o do movimento
         Vector2 direction = targetPosition - lastPosition;
         if (direction != Vector2.zero)
         {
@@ -89,7 +91,7 @@ public class CarController : MonoBehaviour
 
         isMoving = false;
 
-        // Aqui você chama o Diagram para a próxima jogada, se ainda estiver usando
+        // Aqui vocï¿½ chama o Diagram para a prï¿½xima jogada, se ainda estiver usando
         //FindFirstObjectByType<Diagram>().ShowDiagram(targetPosition, currentVelocity, this);
     }
 
@@ -104,6 +106,17 @@ public class CarController : MonoBehaviour
     {
         lastMoveVector = newMoveVector;
         Debug.Log($"{gameObject.name} SetLastMoveVector: {lastMoveVector}");
+    }
+
+    public void MarkAsFinished()
+    {
+        HasFinished = true;
+        Debug.Log($"{gameObject.name} cruzou a linha de chegada com {moves} jogadas.");
+    }
+
+    public void SetInSand(bool inSand)
+    {
+        InSand = inSand;
     }
 
     public void EnableInput(bool e) => canMove = e;

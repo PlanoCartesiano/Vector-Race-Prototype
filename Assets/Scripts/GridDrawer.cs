@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 
 public class GridDrawer : MonoBehaviour
 {
-    public float cellSize = 1f; // Tamanho das células do grid
+    public float cellSize = 1f; // Tamanho das cï¿½lulas do grid
     public Color gridColor = Color.gray; // Cor da grade
 
     private List<LineRenderer> lines = new List<LineRenderer>();
@@ -17,7 +17,7 @@ public class GridDrawer : MonoBehaviour
 
     void DrawGrid()
     {
-        float camHeight = (Camera.main.orthographicSize + 10f) * 2f;
+        float camHeight = (Camera.main.orthographicSize + 20f) * 5f;
         float camWidth = camHeight * Camera.main.aspect;
 
         int gridSizeX = Mathf.CeilToInt(camWidth / cellSize);
@@ -56,7 +56,7 @@ public class GridDrawer : MonoBehaviour
         line.SetPosition(0, start);
         line.SetPosition(1, end);
 
-        line.material = new Material(Shader.Find("Sprites/Default")); // Shader padrão para visibilidade no 2D
+        line.material = new Material(Shader.Find("Sprites/Default")); // Shader padrï¿½o para visibilidade no 2D
 
         lines.Add(line);
     }

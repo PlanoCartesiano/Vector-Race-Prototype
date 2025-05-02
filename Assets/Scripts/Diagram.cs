@@ -50,6 +50,11 @@ public class Diagram : MonoBehaviour
 
     public void ShowDiagram(Vector2 carPosition, Vector2 lastMove, CarController carController)
     {
+        if(carController.HasFinished)
+        {
+            TurnManager.Instance.EndTurn();
+            return;
+        }
         StartCoroutine(ShowDiagramNextFrame(carPosition, lastMove, carController));
     }
 
@@ -57,7 +62,7 @@ public class Diagram : MonoBehaviour
     {
         ClearDiagram();
 
-        yield return null; // Espera um frame para garantir que objetos destruídos "sumam"
+        yield return null;
 
         currentPosition = carPosition;
         lastMoveVector = lastMove;
@@ -69,12 +74,23 @@ public class Diagram : MonoBehaviour
         Vector2 center = carPosition + lastMove;
         float angleInDegrees = Vector2.SignedAngle(Vector2.up, direction);
 
-        List<Vector2Int> offsets = currentShape switch
+        var shape = carController.InSand
+        ? DiagramShape.Compact
+        : DiagramShape.Default;
+
+        List<Vector2Int> offsets = shape switch
+        {
+            DiagramShape.Compact => DiagramShapes.Compact,
+            DiagramShape.Default => DiagramShapes.Default,
+            _ => DiagramShapes.Default
+        };
+
+        /*List<Vector2Int> offsets = currentShape switch
         {
             DiagramShape.Compact => DiagramShapes.Compact,
             DiagramShape.Default => DiagramShapes.Default,
             _ => DiagramShapes.Compact
-        };
+        };*/
 
         foreach (Vector2Int offset in offsets)
         {
@@ -86,55 +102,11 @@ public class Diagram : MonoBehaviour
         isActive = true;
     }
 
-    /*public void ShowDiagram(Vector2 carPosition, Vector2 lastMove, CarController car)
-    {
-        Debug.Log($"[Diagram] Mostrar diagrama no {carPosition} com vetor {lastMove}");
-
-        ClearDiagram();
-
-        currentCar = car;
-
-        currentPosition = carPosition;
-        lastMoveVector = lastMove;
-
-        Vector2 direction = lastMove != Vector2.zero ? lastMove.normalized : Vector2.right;
-
-        transform.right = direction;
-
-        Vector2 center = carPosition + lastMove;
-
-        Debug.DrawRay(center, direction, Color.red, 2f);
-
-        List<Vector2Int> offsets = currentShape switch
-        {
-            DiagramShape.Compact => DiagramShapes.Compact,
-            DiagramShape.Default => DiagramShapes.Default,_ => DiagramShapes.Compact
-        };
-
-        float angleInDegrees = Vector2.SignedAngle(Vector2.up, direction);
-
-        foreach (Vector2Int offset in offsets)
-        {
-            Vector2 rotatedOffset = RotateVector(offset, angleInDegrees);
-            Vector2 pointPos = center + rotatedOffset; // <- voltou ao normal, sem arredondar
-            CreatePoint(pointPos);
-            //Vector2 rawPointPos = center + rotatedOffset;
-            // Vector2 alignedPointPos = new Vector2(Mathf.Round(rawPointPos.x), Mathf.Round(rawPointPos.y));
-            //Vector2 pointPos = center + RotateVector(offset, angleInDegrees); /* + new Vector2(offset.x, offset.y);
-            //CreatePoint(alignedPointPos);
-        };
-
-        isActive = true;
-    }*/
-
     private void CreatePoint(Vector2 position)
     {
         GameObject point = Instantiate(pointPrefab, position, Quaternion.identity, transform);
         points.Add(point);
         point.GetComponent<DiagramPoint>().Setup(this, position, defaultColor, hoverColor);
-
-        Debug.LogWarning($"[DIAGRAM] Criado ponto em {position}");
-
     }
 
     public void SetActivePlayer(CarController player)
@@ -151,8 +123,6 @@ public class Diagram : MonoBehaviour
         }
 
         isSelecting = true;
-
-        Debug.Log($"[Diagram] Ponto selecionado: {selectedPosition}. Carro: {currentCar.name}");
 
         currentCar.MoveTo(selectedPosition);
         isActive = false;

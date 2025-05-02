@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class TurnManager : MonoBehaviour
 {
     public static TurnManager Instance;
     public CarController player1, player2;
+    public CinemachineVirtualCamera virtualCamera;
     private CarController currentPlayer;
 
     void Awake()
@@ -42,16 +45,49 @@ public class TurnManager : MonoBehaviour
             player2.EnableInput(false);
             player1.EnableInput(true);
             currentPlayer = player1;
-        }
+        };
 
-        // Mostra diagrama pro próximo jogador
+        // Mostra diagrama pro prï¿½ximo jogador
         Diagram.Instance.ShowDiagram(
             currentPlayer.transform.position,
             currentPlayer.LastMoveVector,
             currentPlayer
         );
 
-        Debug.Log($"[TurnManager] É a vez de: {currentPlayer.name}, lastMove: {currentPlayer.LastMoveVector}");
+        virtualCamera.Follow = currentPlayer.transform;
+
+        Debug.Log($"[TurnManager] ï¿½ a vez de: {currentPlayer.name}, lastMove: {currentPlayer.LastMoveVector}");
         Debug.Log(currentPlayer.canMove);
+    }
+
+    public void CheckForVictory()
+    {
+
+        Debug.LogWarning("CheckForVictory chamado");
+
+        if (player1.HasFinished && player2.HasFinished)
+        {
+            if (player1.Moves < player2.Moves)
+                ShowVictory(player1.name);
+            else if (player2.Moves < player1.Moves)
+                ShowVictory(player2.name);
+            else
+                ShowVictory("Draw");
+        }
+    }
+
+private void ShowVictory(string winner)
+    {
+        Debug.Log($"Fim de jogo! Vencedor: {winner}");
+
+        Invoke("ResetGame", 7f);
+
+        player1.EnableInput(false);
+        player2.EnableInput(false);
+    }
+
+private void ResetGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
