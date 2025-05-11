@@ -54,7 +54,8 @@ public class TurnManager : MonoBehaviour
             currentPlayer
         );
 
-        virtualCamera.Follow = currentPlayer.transform;
+        virtualCamera.Follow = Diagram.Instance.diagramCenter.transform;
+        //virtualCamera.Follow = currentPlayer.transform;
 
         Debug.Log($"[TurnManager] � a vez de: {currentPlayer.name}, lastMove: {currentPlayer.LastMoveVector}");
         Debug.Log(currentPlayer.canMove);
@@ -78,7 +79,7 @@ public class TurnManager : MonoBehaviour
 
 private void ShowVictory(string winner)
     {
-        Debug.Log($"Fim de jogo! Vencedor: {winner}");
+        VictoryMessage.Instance.ShowVictory($"Fim de jogo! Vencedor: {winner}.");
 
         Invoke("ResetGame", 7f);
 

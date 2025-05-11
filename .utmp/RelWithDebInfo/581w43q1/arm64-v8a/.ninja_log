@@ -1,21 +1,21 @@
 # ninja log v5
-41	275	7660465171424187	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	9a2a412cf2017a04
-18	1351	7660465182139768	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	e0b04517a1be5136
-275	529	7660465173234255	D:/Projetos Unity/Vector Race Prototype/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/581w43q1/obj/arm64-v8a/libswappywrapper.so	b7df42a04e3b52a8
-31	999	7660465178607882	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	c775ff5da6c274c8
-9	1107	7660465179688091	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	7ee7b568355e628
-27	1040	7660465178997931	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	a03d96c7034157d8
-22	1167	7660465180294395	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	ec3538dd601f9406
-36	1164	7660465180254330	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	a006020131586468
-15	1298	7660465181619650	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	5f45560e56806cd6
-1351	1586	7660465183689625	D:/Projetos Unity/Vector Race Prototype/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/581w43q1/obj/arm64-v8a/libgame.so	b7cbc1b46c11d464
 53	277	7670562456483060	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	9a2a412cf2017a04
-278	746	7670562460359109	D:/Projetos Unity/Vector Race Prototype/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/581w43q1/obj/arm64-v8a/libswappywrapper.so	b7df42a04e3b52a8
+25	1327	7670562466967951	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	e0b04517a1be5136
 44	1002	7670562463691977	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	c775ff5da6c274c8
-48	1046	7670562464142155	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	a03d96c7034157d8
-39	1088	7670562464538281	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	a006020131586468
+278	746	7670562460359109	D:/Projetos Unity/Vector Race Prototype/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/581w43q1/obj/arm64-v8a/libswappywrapper.so	b7df42a04e3b52a8
 34	1090	7670562464588293	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	7ee7b568355e628
 20	1133	7670562465033334	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	ec3538dd601f9406
+48	1046	7670562464142155	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	a03d96c7034157d8
+39	1088	7670562464538281	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	a006020131586468
 30	1264	7670562466339200	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	5f45560e56806cd6
-25	1327	7670562466967951	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	e0b04517a1be5136
 1327	1554	7670562468434595	D:/Projetos Unity/Vector Race Prototype/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/581w43q1/obj/arm64-v8a/libgame.so	b7cbc1b46c11d464
+68	633	7682034717799710	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	9a2a412cf2017a04
+633	1098	7682034722124554	D:/Projetos Unity/Vector Race Prototype/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/581w43q1/obj/arm64-v8a/libswappywrapper.so	b7df42a04e3b52a8
+42	1663	7682034728312540	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	c775ff5da6c274c8
+61	1668	7682034728458978	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	a03d96c7034157d8
+20	1735	7682034729060726	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	7ee7b568355e628
+52	1762	7682034729363050	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	a006020131586468
+13	1774	7682034729519297	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	ec3538dd601f9406
+26	1922	7682034730977060	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	5f45560e56806cd6
+33	1994	7682034731744984	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	e0b04517a1be5136
+1994	2137	7682034732924105	D:/Projetos Unity/Vector Race Prototype/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/581w43q1/obj/arm64-v8a/libgame.so	b7cbc1b46c11d464

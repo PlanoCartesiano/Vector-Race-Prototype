@@ -81,7 +81,6 @@ public class CarController : MonoBehaviour
 
         transform.position = targetPosition;
 
-        // Rotaciona o carro com base na dire��o do movimento
         Vector2 direction = targetPosition - lastPosition;
         if (direction != Vector2.zero)
         {
@@ -90,9 +89,6 @@ public class CarController : MonoBehaviour
         }
 
         isMoving = false;
-
-        // Aqui voc� chama o Diagram para a pr�xima jogada, se ainda estiver usando
-        //FindFirstObjectByType<Diagram>().ShowDiagram(targetPosition, currentVelocity, this);
     }
 
     private void AddPointToPath(Vector2 newPoint)
@@ -105,13 +101,11 @@ public class CarController : MonoBehaviour
     public void SetLastMoveVector(Vector2 newMoveVector)
     {
         lastMoveVector = newMoveVector;
-        Debug.Log($"{gameObject.name} SetLastMoveVector: {lastMoveVector}");
     }
 
     public void MarkAsFinished()
     {
         HasFinished = true;
-        Debug.Log($"{gameObject.name} cruzou a linha de chegada com {moves} jogadas.");
     }
 
     public void SetInSand(bool inSand)

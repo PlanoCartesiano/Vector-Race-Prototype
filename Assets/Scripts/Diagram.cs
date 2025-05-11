@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static Diagram;
-using static UnityEditor.PlayerSettings;
 
 public class Diagram : MonoBehaviour
 {
@@ -10,6 +9,7 @@ public class Diagram : MonoBehaviour
     public GameObject pointPrefab;
     public Color defaultColor = Color.cyan;
     public Color hoverColor = Color.green;
+    public Transform diagramCenter;
 
     private List<GameObject> points = new List<GameObject>();
     private Vector2 lastMoveVector = Vector2.zero;
@@ -72,7 +72,14 @@ public class Diagram : MonoBehaviour
         transform.right = direction;
 
         Vector2 center = carPosition + lastMove;
+
+        if (diagramCenter != null)
+        {
+            diagramCenter.position = center;
+        }
+
         float angleInDegrees = Vector2.SignedAngle(Vector2.up, direction);
+
 
         var shape = carController.InSand
         ? DiagramShape.Compact
@@ -84,13 +91,6 @@ public class Diagram : MonoBehaviour
             DiagramShape.Default => DiagramShapes.Default,
             _ => DiagramShapes.Default
         };
-
-        /*List<Vector2Int> offsets = currentShape switch
-        {
-            DiagramShape.Compact => DiagramShapes.Compact,
-            DiagramShape.Default => DiagramShapes.Default,
-            _ => DiagramShapes.Compact
-        };*/
 
         foreach (Vector2Int offset in offsets)
         {
@@ -118,7 +118,7 @@ public class Diagram : MonoBehaviour
     {
         if (!isActive || currentCar == null || isSelecting)
         {
-            Debug.LogWarning("[Diagram] Tentativa de selecionar ponto sem carController ou diagrama inativo.");
+            //Debug.LogWarning("[Diagram] Tentativa de selecionar ponto sem carController ou diagrama inativo.");
             return; 
         }
 
